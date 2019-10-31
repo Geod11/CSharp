@@ -30,7 +30,7 @@ namespace NumberGuesser
                     guess = int.Parse(input);
                     if (guess != correctNumber)
                     {
-                        PrintColorMessage(ConsoleColor.Red, "Wrong guess, try a different number: ");
+                        PrintColorMessage((guess < correctNumber ? ConsoleColor.Red : ConsoleColor.Blue), "Wrong guess, try a different number: ");
                     }
                 }
 
@@ -60,7 +60,7 @@ namespace NumberGuesser
             }
         }
 
-        static void AppInfo ()
+        static void AppInfo()
         {
             string appName = "Number Guesser";
             string appVersion = "1.0.0";
@@ -71,12 +71,12 @@ namespace NumberGuesser
             Console.ResetColor();
             Console.WriteLine("");
         }
-        static void GreetUser ()
-        {            
+        static void GreetUser()
+        {
             Console.Write("What is your name? ");
             string inputName = Console.ReadLine();
             Console.WriteLine("");
-            Console.WriteLine($"Hello {inputName}, let's play a game.");            
+            Console.WriteLine($"Hello {inputName}, let's play a game.");
         }
 
         static void PrintColorMessage(ConsoleColor color, string message)
