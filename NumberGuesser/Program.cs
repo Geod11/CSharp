@@ -11,6 +11,7 @@ namespace NumberGuesser
             AppInfo();
             GreetUser();
               
+
             while (true)
             {
                 Random random = new Random();
