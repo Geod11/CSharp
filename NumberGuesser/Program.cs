@@ -30,6 +30,15 @@ namespace NumberGuesser
                         continue;
                     }
 
+                    foreach (var item in chosenNumbers)
+                    {
+                        if (item == guess)
+                        {
+                            PrintColorMessage(ConsoleColor.Red, "You tried this number already!");
+                            break;
+                        }
+                    }
+
                     guess = int.Parse(input);
                    
                     chosenNumbers.Add(guess);
@@ -79,6 +88,7 @@ namespace NumberGuesser
                 string answer;
                 while (true)
                 {
+                    Console.WriteLine(" ");
                     Console.Write("Play again? [Y or N] ");
                     answer = Console.ReadLine().ToUpper();
 
