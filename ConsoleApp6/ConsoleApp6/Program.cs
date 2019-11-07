@@ -10,6 +10,10 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(Excercise23());
+            }
             //Numerele de la 1 la 100. Daca este multiplu de 3 sa se afiseze Fizz
             //Daca este multiplu de 5 sa se afiseze Buzz
             //Daca este multiplu si de 3 si de 5 sa se afiseze FizzBuzz
@@ -37,25 +41,41 @@ namespace ConsoleApp6
             //}
 
             //Un program care cere un cuvant si inverseaza prima cu ultima litera
-            Console.Write("Write a word: ");
-            string userInput = Console.ReadLine();
-            char[] userInputArray = userInput.ToCharArray();
-            
-            for (int i = 0; i < userInputArray.Length; i++)
-            {
-                char primul = userInputArray[i];
-                userInputArray[i] = userInputArray[0];
-                userInputArray[0] = primul;
+            //definim cuvant un string care are min 1 char diferit de spatiu 
 
-                //char ultimul = userInputArray[i];
-                //userInputArray[i] = userInputArray[userInputArray.Length - 1];
-                //userInputArray[userInputArray.Length - 1] = ultimul;
-            }
-
-            string result = new string(userInputArray);
-            Console.WriteLine(result);
 
             Console.ReadKey();
+        }
+        static string Excercise23()
+        {
+            while (true)
+            {
+                Console.Write("Write a word: ");
+                string trimmedUserInput = Console.ReadLine().Trim();
+                if (!string.IsNullOrWhiteSpace(trimmedUserInput))
+                {
+                    var indexOfSpace = trimmedUserInput.IndexOf(' ');
+                    string cuv;
+                    if (indexOfSpace > 0)
+                    {
+                        cuv = trimmedUserInput.Substring(0, indexOfSpace);
+                    }
+                    else
+                    {
+                        cuv = trimmedUserInput;
+                    }
+                    var l = cuv.Length;
+                    if (l == 1)
+                    {
+                        return cuv;
+                    }
+                    else
+                    {
+                        string res = cuv[l - 1] + cuv.Substring(1, l - 2) + cuv[0];
+                        return res;
+                    }
+                }
+            }
         }
     }
 }
