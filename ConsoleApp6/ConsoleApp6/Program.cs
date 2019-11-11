@@ -10,6 +10,8 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
+            Piramid.Piramida();
+
             for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine(Excercise23());
