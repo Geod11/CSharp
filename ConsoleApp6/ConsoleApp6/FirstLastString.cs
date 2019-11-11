@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp6
 {
-    class Exercise23
+    class FirstLastString
     {
-        public static string Excercise23()
+        public static string FirstLastMethod()
         {
             while (true)
             {
@@ -21,19 +21,24 @@ namespace ConsoleApp6
                     if (indexOfSpace > 0)
                     {
                         cuv = trimmedUserInput.Substring(0, indexOfSpace);
+                        Console.WriteLine(cuv);
                     }
                     else
                     {
                         cuv = trimmedUserInput;
+                        Console.WriteLine(cuv);
                     }
                     var l = cuv.Length;
                     if (l == 1)
                     {
+                        Console.WriteLine(cuv);
                         return cuv;
                     }
                     else
                     {
+
                         string res = cuv[l - 1] + cuv.Substring(1, l - 2) + cuv[0];
+                        Console.WriteLine(res);
                         return res;
                     }
                 }

@@ -10,14 +10,18 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
-            FizzBuzz.FizzBuzzMethod();
+            // 1. Print the numbers from 1 to 100 with the following conditions:
+            // - if the number is a multiple of 3 "Fizz" should be displayed instead;
+            // - if the number is a multiple of 5 "Buzz" should be displayed instead;
+            // - if the number is a multiple of both 3 and 5 "FizzBuzz" should be displayed instead;
+            ////FizzBuzz.FizzBuzzMethod(); 
 
-            Piramid.Piramida();
+            // 2. Display a piramid made from a character provided by the user with the height desired by the user as well;
+            ////Piramid.Piramida();
 
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine(Exercise23.Excercise23());
-            }
+                        
+                FirstLastString.FirstLastMethod();
+            
 
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
