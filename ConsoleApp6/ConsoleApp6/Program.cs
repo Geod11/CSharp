@@ -14,7 +14,7 @@ namespace ConsoleApp6
 
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine(Excercise23());
+                Console.WriteLine(Exercise23.Excercise23());
             }
             //Numerele de la 1 la 100. Daca este multiplu de 3 sa se afiseze Fizz
             //Daca este multiplu de 5 sa se afiseze Buzz
@@ -48,36 +48,6 @@ namespace ConsoleApp6
 
             Console.ReadKey();
         }
-        static string Excercise23()
-        {
-            while (true)
-            {
-                Console.Write("Write a word: ");
-                string trimmedUserInput = Console.ReadLine().Trim();
-                if (!string.IsNullOrWhiteSpace(trimmedUserInput))
-                {
-                    var indexOfSpace = trimmedUserInput.IndexOf(' ');
-                    string cuv;
-                    if (indexOfSpace > 0)
-                    {
-                        cuv = trimmedUserInput.Substring(0, indexOfSpace);
-                    }
-                    else
-                    {
-                        cuv = trimmedUserInput;
-                    }
-                    var l = cuv.Length;
-                    if (l == 1)
-                    {
-                        return cuv;
-                    }
-                    else
-                    {
-                        string res = cuv[l - 1] + cuv.Substring(1, l - 2) + cuv[0];
-                        return res;
-                    }
-                }
-            }
-        }
+        
     }
 }
