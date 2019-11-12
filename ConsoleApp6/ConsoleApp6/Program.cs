@@ -23,8 +23,14 @@ namespace ConsoleApp6
             ////FirstLastString.FirstLastMethod();
 
             // 4. Create a calculator that will take 2 numbers from the user and add, subtract, multiply, divide and calculate modulo.
-            Calculator.CalculatorMethod();
+            ////Calculator.CalculatorMethod();
 
+            // 5. Create a program that asks for the temperature in Celsius and converts to Farrenheit and Kelvin.
+            ////Temeperature.Converter();
+
+            // 6. Create a program that take as input 2 numbers from the user and compares the to see which one is positiv/negative,
+            //odd/even and if they are equal or not.
+            Comparator.PozitiveNegativeEqual();
 
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
