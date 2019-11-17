@@ -11,7 +11,6 @@ namespace NumberGuesser
             AppInfo();
             GreetUser();
               
-
             while (true)
             {
                 Random random = new Random();
@@ -35,6 +34,7 @@ namespace NumberGuesser
                         if (item == guess)
                         {
                             PrintColorMessage(ConsoleColor.Red, "You tried this number already!");
+                            Console.WriteLine(" ");
                             break;
                         }
                     }
@@ -78,7 +78,7 @@ namespace NumberGuesser
                 PrintColorMessage(ConsoleColor.Yellow, "You are correct!!!");
                 Console.WriteLine("");
 
-                Console.Write($"You had {chosenNumbers.Count} guesses: ");
+                Console.Write($"You guessed in {chosenNumbers.Count} tries: ");
                 foreach (var item in chosenNumbers)
                 {
                     Console.Write(item + " ");
