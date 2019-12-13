@@ -3,117 +3,152 @@ using System.Collections.Generic;
 
 namespace NumberGuesser
 {
-    class Program
+    public class Program
     {
         
+        //public static void InputRangeLimits()
+        //{
+        //    Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
+        //    int lowerLimit = int.Parse(Console.ReadLine());
+
+        //    Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
+        //    int upperLimit = int.Parse(Console.ReadLine());
+        //}
+        //public Program()
+        //{
+        //    Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");            
+        //    int lowerLimit = int.Parse(Console.ReadLine());
+        //    Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
+        //    int upperLimit = int.Parse(Console.ReadLine());
+        //}
+
         static void Main(string[] args)
         {
             AppInfo();
             GreetUser();
-              
+                                         
+            //InputRangeLimits();
+                       
             while (true)
             {
-                Random random = new Random();
-                int correctNumber = random.Next(1, 10);
-                int guess = 0;
-                Console.WriteLine("");
-                Console.Write("Guess a number between 1 and 10: ");
-                List<int> chosenNumbers = new List<int>();
+                Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
+                int lowerLimit = int.Parse(Console.ReadLine());
 
-                while (guess != correctNumber)
+                Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
+                int upperLimit = int.Parse(Console.ReadLine());
+
+                if (lowerLimit < upperLimit)
                 {
-                    string input = Console.ReadLine();
-                    if (!int.TryParse(input, out guess))
-                    {
-                        PrintColorMessage(ConsoleColor.Red, "Please choose an actual number: ");
-                        continue;
-                    }
+                    Console.Write($"Choose a number between {lowerLimit} and {upperLimit}: ");
 
-                    foreach (var item in chosenNumbers)
-                    {
-                        if (item == guess)
-                        {
-                            PrintColorMessage(ConsoleColor.Red, "You tried this number already!");
-                            Console.WriteLine(" ");
-                            break;
-                        }
-                    }
+                    Random random = new Random();
+                    int correctNumber = random.Next(lowerLimit, upperLimit);
+                    int guess = 0;                  
+                    List<int> chosenNumbers = new List<int>();
 
-                    guess = int.Parse(input);
-                   
-                    chosenNumbers.Add(guess);
-                    
-                    if (guess < correctNumber)
+                    while (guess != correctNumber)
                     {
-                        
-                        if (guess < 1)
+                        string input = Console.ReadLine();
+                        if (!int.TryParse(input, out guess))
                         {
-                            PrintColorMessage(ConsoleColor.Blue, "Out of range, choose a number between 1 and 10: ");
+                            PrintColorMessage(ConsoleColor.Red, "Please choose an actual number: ");
                             continue;
                         }
-                        
-                        else if (guess < correctNumber)
+
+                        foreach (var item in chosenNumbers)
                         {
-                            PrintColorMessage(ConsoleColor.Blue, "Wrong guess, try a HIGHER number: ");
-                            continue;
-                        }                          
-                    }
-                    else if (guess > correctNumber)
-                    {
-                        
-                        if (guess > 10)
-                        {
-                            PrintColorMessage(ConsoleColor.Blue, "Out of range, choose a number between 1 and 10: ");
-                            continue;
+                            if (item == guess)
+                            {
+                                PrintColorMessage(ConsoleColor.Red, "You tried this number already!");
+                                Console.WriteLine(" ");
+                                break;
+                            }
                         }
-                        
+
+                        guess = int.Parse(input);
+
+                        chosenNumbers.Add(guess);
+
+                        if (guess < correctNumber)
+                        {
+
+                            if (guess < lowerLimit)
+                            {
+                                PrintColorMessage(ConsoleColor.Blue, $"Out of range, choose a number between {lowerLimit} and {upperLimit}: ");
+                                continue;
+                            }
+
+                            else if (guess < correctNumber)
+                            {
+                                PrintColorMessage(ConsoleColor.Blue, "Wrong guess, try a HIGHER number: ");
+                                continue;
+                            }
+                        }
                         else if (guess > correctNumber)
                         {
-                            PrintColorMessage(ConsoleColor.Blue, "Wrong guess, try a LOWER number: ");
+
+                            if (guess > upperLimit)
+                            {
+                                PrintColorMessage(ConsoleColor.Blue, $"Out of range, choose a number between {lowerLimit} and {upperLimit}: ");
+                                continue;
+                            }
+
+                            else if (guess > correctNumber)
+                            {
+                                PrintColorMessage(ConsoleColor.Blue, "Wrong guess, try a LOWER number: ");
+                                continue;
+                            }
+                        }
+                    }
+
+                    PrintColorMessage(ConsoleColor.Yellow, "You are correct!!!");
+                    Console.WriteLine("");
+
+                    Console.Write($"You guessed in {chosenNumbers.Count} tries: ");
+                    foreach (var item in chosenNumbers)
+                    {
+                        Console.Write(item + " ");
+                    }
+                    Console.WriteLine("");
+
+                    string answer;
+                    while (true)
+                    {
+                        Console.WriteLine(" ");
+                        Console.Write("Play again? [Y or N] ");
+                        answer = Console.ReadLine().ToUpper();
+
+                        if (answer == "Y")
+                        {
+                            break;
+                        }
+                        else if (answer == "N")
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                            PrintColorMessage(ConsoleColor.Red, "Please type one of the options \"Y\" or \"N\"");
                             continue;
                         }
-                    }                   
+                    }  
                 }
-                
-                PrintColorMessage(ConsoleColor.Yellow, "You are correct!!!");
-                Console.WriteLine("");
-
-                Console.Write($"You guessed in {chosenNumbers.Count} tries: ");
-                foreach (var item in chosenNumbers)
+                else
                 {
-                    Console.Write(item + " ");
+                   
+                    PrintColorMessage(ConsoleColor.Red, "The Upper Limit must be of higher value than the Lower Limit. Try again.");
+                    Console.WriteLine();
+                    continue;
                 }
-                Console.WriteLine("");
 
-                string answer;
-                while (true)
-                {
-                    Console.WriteLine(" ");
-                    Console.Write("Play again? [Y or N] ");
-                    answer = Console.ReadLine().ToUpper();
-
-                    if (answer == "Y")
-                    {
-                        break;
-                    }
-                    else if (answer == "N")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("");
-                        PrintColorMessage(ConsoleColor.Red, "Please type one of the options \"Y\" or \"N\"");
-                        continue;
-                    }
-                }
             }
         }
 
         static void AppInfo ()
         {
             string appName = "Number Guesser";
-            string appVersion = "1.0.0";
+            string appVersion = "1.0.1";
             string appAuthor = "George Danilescu";
 
             Console.ForegroundColor = ConsoleColor.Green;
@@ -135,6 +170,8 @@ namespace NumberGuesser
             Console.Write(message);
             Console.ResetColor();
         }
+
+      
         
     }
 }
