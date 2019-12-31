@@ -5,30 +5,11 @@ namespace NumberGuesser
 {
     public class Program
     {
-        
-        //public static void InputRangeLimits()
-        //{
-        //    Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
-        //    int lowerLimit = int.Parse(Console.ReadLine());
-
-        //    Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
-        //    int upperLimit = int.Parse(Console.ReadLine());
-        //}
-        //public Program()
-        //{
-        //    Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");            
-        //    int lowerLimit = int.Parse(Console.ReadLine());
-        //    Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
-        //    int upperLimit = int.Parse(Console.ReadLine());
-        //}
-
         static void Main(string[] args)
         {
             AppInfo();
             GreetUser();
-                                         
-            //InputRangeLimits();
-                       
+            
             while (true)
             {
                 Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
