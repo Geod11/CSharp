@@ -5,30 +5,12 @@ namespace NumberGuesser
 {
     public class Program
     {
-        
-        //public static void InputRangeLimits()
-        //{
-        //    Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
-        //    int lowerLimit = int.Parse(Console.ReadLine());
-
-        //    Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
-        //    int upperLimit = int.Parse(Console.ReadLine());
-        //}
-        //public Program()
-        //{
-        //    Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");            
-        //    int lowerLimit = int.Parse(Console.ReadLine());
-        //    Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
-        //    int upperLimit = int.Parse(Console.ReadLine());
-        //}
-
+             
         static void Main(string[] args)
         {
             AppInfo();
             GreetUser();
-                                         
-            //InputRangeLimits();
-                       
+                                                              
             while (true)
             {
                 Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
@@ -135,20 +117,18 @@ namespace NumberGuesser
                     }  
                 }
                 else
-                {
-                   
+                {                  
                     PrintColorMessage(ConsoleColor.Red, "The Upper Limit must be of higher value than the Lower Limit. Try again.");
                     Console.WriteLine();
                     continue;
                 }
-
             }
         }
 
         static void AppInfo ()
         {
             string appName = "Number Guesser";
-            string appVersion = "1.0.1";
+            string appVersion = "1.0.2";
             string appAuthor = "George Danilescu";
 
             Console.ForegroundColor = ConsoleColor.Green;
