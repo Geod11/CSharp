@@ -14,17 +14,57 @@ namespace NumberGuesser
             while (true)
             {
                 Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
-                int lowerLimit = int.Parse(Console.ReadLine());
-
-                Console.Write("Please choose a number for the Higher Limit of the Guessing Range: ");
-                int upperLimit = int.Parse(Console.ReadLine());
-
-                if (lowerLimit < upperLimit)
+                int lowerLimitNumber;
+                
+                while (true)
                 {
-                    Console.Write($"Choose a number between {lowerLimit} and {upperLimit}: ");
+                    string lowerLimit = Console.ReadLine();
+                    int lowerLimitInteger = int.Parse(lowerLimit);
+                    bool integerLimit = (lowerLimitInteger < int.MaxValue);
+                    try
+                    {
+                        integerLimit = true;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Error message {e}");
+                    }
+                    if (int.TryParse(lowerLimit, out lowerLimitNumber))
+                    {
+                        Console.WriteLine($"The Lower Limit is {lowerLimitNumber}");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please type an acual number: ");
+                        continue;
+                    }
+                }            
+
+                Console.Write("Please choose a number for the Upper Limit of the Guessing Range: ");
+                int upperLimitNumber;
+
+                while (true)
+                {
+                    string upperLimit = Console.ReadLine();
+                    if (int.TryParse(upperLimit, out upperLimitNumber))
+                    {
+                        Console.WriteLine($"The Lower Upper Limit is {upperLimitNumber}");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please type an acual number: ");
+                        continue;
+                    }
+                }              
+
+                if (lowerLimitNumber < upperLimitNumber)
+                {
+                    Console.Write($"Choose a number between {lowerLimitNumber} and {upperLimitNumber}: ");
 
                     Random random = new Random();
-                    int correctNumber = random.Next(lowerLimit, upperLimit);
+                    int correctNumber = random.Next(lowerLimitNumber, upperLimitNumber);
                     int guess = 0;                  
                     List<int> chosenNumbers = new List<int>();
 
@@ -54,9 +94,9 @@ namespace NumberGuesser
                         if (guess < correctNumber)
                         {
 
-                            if (guess < lowerLimit)
+                            if (guess < lowerLimitNumber)
                             {
-                                PrintColorMessage(ConsoleColor.Blue, $"Out of range, choose a number between {lowerLimit} and {upperLimit}: ");
+                                PrintColorMessage(ConsoleColor.Blue, $"Out of range, choose a number between {lowerLimitNumber} and {upperLimitNumber}: ");
                                 continue;
                             }
 
@@ -69,9 +109,9 @@ namespace NumberGuesser
                         else if (guess > correctNumber)
                         {
 
-                            if (guess > upperLimit)
+                            if (guess > upperLimitNumber)
                             {
-                                PrintColorMessage(ConsoleColor.Blue, $"Out of range, choose a number between {lowerLimit} and {upperLimit}: ");
+                                PrintColorMessage(ConsoleColor.Blue, $"Out of range, choose a number between {lowerLimitNumber} and {upperLimitNumber}: ");
                                 continue;
                             }
 
