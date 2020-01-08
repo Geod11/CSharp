@@ -13,35 +13,35 @@ namespace NumberGuesser
                                                               
             while (true)
             {
-                Console.Write("Please choose a number for the Lower Limit of the Guessing Range: ");
+                Console.Write("Please choose a number for the Lowest Limit of the Guessing Range: ");
                 int lowerLimitNumber;
                 
                 while (true)
                 {
                     string lowerLimit = Console.ReadLine();
-                    int lowerLimitInteger = int.Parse(lowerLimit);
-                    bool integerLimit = (lowerLimitInteger < int.MaxValue);
-                    try
-                    {
-                        integerLimit = true;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine($"Error message {e}");
-                    }
+                    //int lowerLimitInteger = int.Parse(lowerLimit);
+                    //bool integerLimit = (lowerLimitInteger < int.MaxValue);
+                    //try
+                    //{
+                    //    integerLimit = true;
+                    //}
+                    //catch (Exception e)
+                    //{
+                    //    Console.WriteLine($"Error message {e}");
+                    //}
                     if (int.TryParse(lowerLimit, out lowerLimitNumber))
                     {
-                        Console.WriteLine($"The Lower Limit is {lowerLimitNumber}");
+                        Console.WriteLine($"The Lowest Limit is {lowerLimitNumber}");
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Please type an acual number: ");
+                        Console.Write("Please type an acual number: ");
                         continue;
                     }
                 }            
 
-                Console.Write("Please choose a number for the Upper Limit of the Guessing Range: ");
+                Console.Write("Please choose a number for the Highest Limit of the Guessing Range: ");
                 int upperLimitNumber;
 
                 while (true)
@@ -49,7 +49,7 @@ namespace NumberGuesser
                     string upperLimit = Console.ReadLine();
                     if (int.TryParse(upperLimit, out upperLimitNumber))
                     {
-                        Console.WriteLine($"The Lower Upper Limit is {upperLimitNumber}");
+                        Console.WriteLine($"The Highest Limit is {upperLimitNumber}");
                         break;
                     }
                     else
@@ -168,7 +168,7 @@ namespace NumberGuesser
         static void AppInfo ()
         {
             string appName = "Number Guesser";
-            string appVersion = "1.0.2";
+            string appVersion = "1.0.3";
             string appAuthor = "George Danilescu";
 
             Console.ForegroundColor = ConsoleColor.Green;
@@ -181,7 +181,7 @@ namespace NumberGuesser
             Console.Write("What is your name? ");
             string inputName = Console.ReadLine();
             Console.WriteLine("");
-            Console.WriteLine($"Hello {inputName}, let's play a game.");            
+            Console.WriteLine($"Hello {inputName}, let's play a number guessing game.");            
         }
 
         static void PrintColorMessage(ConsoleColor color, string message)
