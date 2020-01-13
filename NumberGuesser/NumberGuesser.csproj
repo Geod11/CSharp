@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>DSCN1984.ico</ApplicationIcon>
+    <ApplicationIcon>favicon %283%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DSCN1984.ico" />
+    <Content Include="favicon %283%29.ico" />
+    <Content Include="Logo %282%29.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
