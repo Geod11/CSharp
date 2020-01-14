@@ -10,7 +10,7 @@ namespace ConsoleApp6
     {
         public static void Converter()
         {
-            Console.Write("Please type the value in Celsius degress that you want converted to Farrenheit and Kelvin: ");
+            Console.Write("Please type the value in Celsius degrees that you want converted to Farrenheit and Kelvin: ");
             double celsius = Convert.ToDouble(Console.ReadLine());
             double farrenheit = (celsius * 9) / 5 + 32;
             double kelvin = celsius + 273.15;

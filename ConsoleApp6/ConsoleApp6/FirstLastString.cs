@@ -21,12 +21,12 @@ namespace ConsoleApp6
                     if (indexOfSpace > 0)
                     {
                         cuv = trimmedUserInput.Substring(0, indexOfSpace);
-                        Console.WriteLine(cuv);
+                        Console.WriteLine($"Din cuvantul \"{cuv}\" prima si ultima litera vor fi schimbate intre ele.");
                     }
                     else
                     {
                         cuv = trimmedUserInput;
-                        Console.WriteLine(cuv);
+                        Console.WriteLine($"Din cuvantul \"{cuv}\" prima si ultima litera vor fi schimbate intre ele.");
                     }
                     var l = cuv.Length;
                     if (l == 1)
@@ -38,7 +38,7 @@ namespace ConsoleApp6
                     {
 
                         string res = cuv[l - 1] + cuv.Substring(1, l - 2) + cuv[0];
-                        Console.WriteLine(res);
+                        Console.WriteLine($"Noul cuvant este \"{res}\".");
                         return res;
                     }
                 }

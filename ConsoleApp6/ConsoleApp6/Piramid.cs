@@ -27,8 +27,6 @@ namespace ConsoleApp6
                 }
                 Console.WriteLine("");
             }
-
-            Console.ReadLine();
         }
     }
 }
